@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: starcourt-gateway
+eureka:
+  client:
+    serviceUrl:
+      default-zone: ${EUREKA_URI:http://localhost:8761/eureka}
