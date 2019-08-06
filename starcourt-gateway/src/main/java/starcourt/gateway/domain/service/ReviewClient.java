@@ -1,6 +1,7 @@
 package starcourt.gateway.domain.service;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import lombok.Data;
 import org.springframework.cloud.netflix.ribbon.RibbonClient;
 import org.springframework.core.ParameterizedTypeReference;
@@ -22,10 +23,15 @@ public class ReviewClient {
         this.restTemplate = restTemplate;
     }
 
+    @HystrixCommand(fallbackMethod = "getReviewFallback")
     public List<Review> getReview(Long id) {
         ResponseEntity<Page<Review>> response = restTemplate.exchange("http://starcourt-review/?productId={id}",
                 HttpMethod.GET, null, new ParameterizedTypeReference<Page<Review>>() {}, id);
         return Objects.requireNonNull(response.getBody()).getContent();
+    }
+
+    public List<Review> getReviewFallback(Long id, Throwable throwable) {
+        return Collections.emptyList();
     }
 
     @Data

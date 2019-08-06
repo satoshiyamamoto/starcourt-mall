@@ -37,9 +37,9 @@ public class Product {
     @Data
     public static class Stock {
 
-        private Long quantity;
+        private Long quantity = 0L;
 
-        private Status status;
+        private Status status = Status.UNAVAILABLE;
     }
 
     public enum Status {
