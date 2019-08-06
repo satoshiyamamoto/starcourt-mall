@@ -1,6 +1,11 @@
 spring:
   application:
     name: starcourt-gateway
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
 eureka:
   client:
     serviceUrl:
