@@ -3,10 +3,9 @@ server:
 spring:
   application:
     name: starcourt-stock
-  datasource:
-    url: jdbc:mysql://localhost:3306/starcourt_stock?characterEncoding=utf8
-    username: root
-    password: ''
+  jpa:
+    hibernate:
+      ddl-auto: none
 eureka:
   client:
     service-url:

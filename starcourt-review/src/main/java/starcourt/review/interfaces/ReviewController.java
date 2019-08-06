@@ -22,10 +22,16 @@ public class ReviewController {
     }
 
     @GetMapping
-    public Page<Review> index(@RequestParam(required = false) String username, Pageable page) {
-        return username != null
-                ? repository.findAllByUsername(username, page)
-                : repository.findAll(page);
+    public Page<Review> index(@RequestParam(required = false) Long productId,
+                              @RequestParam(required = false) String username,
+                              Pageable page) {
+        if (productId != null) {
+            return repository.findAllByProductId(productId, page);
+        }
+        if (username != null) {
+            return repository.findAllByUsername(username, page);
+        }
+        return repository.findAll(page);
     }
 
     @GetMapping("{id}")

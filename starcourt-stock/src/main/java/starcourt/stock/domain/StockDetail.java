@@ -35,6 +35,7 @@ public class StockDetail {
                 .filter(Objects::nonNull)
                 .sum();
         ZonedDateTime updatedAt = stocks.stream()
+                .filter(Objects::nonNull)
                 .max(Comparator.comparing(Stock::getUpdatedAt))
                 .map(Stock::getUpdatedAt)
                 .orElse(ZonedDateTime.now());

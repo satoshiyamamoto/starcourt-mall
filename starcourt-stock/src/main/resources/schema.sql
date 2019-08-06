@@ -8,9 +8,7 @@ CREATE TABLE stocks
     supplier    VARCHAR(200),
     created_at  TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
     updated_at  TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
-    PRIMARY KEY (id),
-    INDEX (product_id)
-) ENGINE InnoDB
-  DEFAULT CHARSET = utf8mb4
-  COLLATE = utf8mb4_bin;
+    PRIMARY KEY (id)
+);
 
+CREATE INDEX product_id ON stocks (product_id);

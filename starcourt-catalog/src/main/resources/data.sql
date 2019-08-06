@@ -1,19 +1,3 @@
-CREATE TABLE products
-(
-    id          BIGINT AUTO_INCREMENT,
-    name        VARCHAR(200)                        NOT NULL,
-    description TEXT,
-    category    VARCHAR(100)                        NOT NULL,
-    price       DECIMAL(8, 2)                       NOT NULL,
-    manufacture VARCHAR(200)                        NOT NULL,
-    created_at  TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
-    updated_at  TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
-    PRIMARY KEY (id),
-    UNIQUE (name)
-) ENGINE InnoDB
-  DEFAULT CHARSET = utf8mb4
-  COLLATE = utf8mb4_bin;;
-
 INSERT INTO products (name, description, category, price, manufacture)
 VALUES ('シャンブレーボンバージャケット (キッズ)', 'シャンブレーデニム\nダークインディゴ\n長袖、バンドカフス\nバンド付きの襟、ジップフロント\n前にスラントポケット付き\n裾リブ ', 'FASHION',
         5900.00, 'gap'),

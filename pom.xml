@@ -13,6 +13,7 @@
         <module>starcourt-catalog</module>
         <module>starcourt-stock</module>
         <module>starcourt-review</module>
+        <module>starcourt-gateway</module>
         <module>starcourt-service-registry</module>
     </modules>
 

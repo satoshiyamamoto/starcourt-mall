@@ -4,36 +4,21 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
-import starcourt.gateway.domain.CatalogClient;
-import starcourt.gateway.domain.ReviewClient;
-import starcourt.gateway.domain.StockClient;
-
-import java.util.Map;
+import starcourt.gateway.application.StarcourtService;
+import starcourt.gateway.domain.model.Product;
 
 @RestController
 public class GatewayController {
 
-    private final CatalogClient catalogClient;
-    private final StockClient stockClient;
-    private final ReviewClient reviewClient;
+    private final StarcourtService application;
 
-    public GatewayController(CatalogClient catalogClient,
-                             StockClient stockClient,
-                             ReviewClient reviewClient) {
-        this.catalogClient = catalogClient;
-        this.stockClient = stockClient;
-        this.reviewClient = reviewClient;
+    public GatewayController(StarcourtService application) {
+        this.application = application;
     }
 
     @GetMapping("{id}")
     public ResponseEntity index(@PathVariable Long id) {
-        Map<String, Object> res = catalogClient.getCatalog(id);
-        System.out.println(res);
-        res = stockClient.getStock(id);
-        System.out.println(res);
-//        res = reviewClient.getReview(id);
-//        System.out.println(res);
-
-        return null;
+        Product product = application.getProduct(id);
+        return ResponseEntity.ok(product);
     }
 }

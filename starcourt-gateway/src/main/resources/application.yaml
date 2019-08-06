@@ -5,3 +5,15 @@ eureka:
   client:
     serviceUrl:
       default-zone: ${EUREKA_URI:http://localhost:8761/eureka}
+starcourt-catalog:
+  ribbon:
+    eureka:
+      enabled: true
+starcourt-stock:
+  ribbon:
+    eureka:
+      enabled: true
+starcourt-review:
+  ribbon:
+    eureka:
+      enabled: true

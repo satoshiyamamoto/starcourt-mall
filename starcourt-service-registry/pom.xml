@@ -11,7 +11,7 @@
     <groupId>starcourt</groupId>
     <artifactId>starcourt-service-registory</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>starcourt-service-registory</name>
+    <name>starcourt-service-registry</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
