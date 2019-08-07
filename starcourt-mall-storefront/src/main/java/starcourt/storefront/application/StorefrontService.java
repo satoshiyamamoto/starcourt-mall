@@ -2,34 +2,26 @@ package starcourt.storefront.application;
 
 import org.springframework.stereotype.Service;
 import starcourt.storefront.domain.model.Product;
-import starcourt.storefront.domain.service.CatalogClient;
-import starcourt.storefront.domain.service.ReviewClient;
-import starcourt.storefront.domain.service.StockClient;
+import starcourt.storefront.domain.service.GatewayClient;
 
 import java.util.List;
 
 @Service
 public class StorefrontService {
 
-    private final CatalogClient catalogClient;
-    private final StockClient stockClient;
-    private final ReviewClient reviewClient;
+    private final GatewayClient gatewayClient;
 
-    public StorefrontService(CatalogClient catalogClient,
-                             StockClient stockClient,
-                             ReviewClient reviewClient) {
-        this.catalogClient = catalogClient;
-        this.stockClient = stockClient;
-        this.reviewClient = reviewClient;
+    public StorefrontService(GatewayClient gatewayClient) {
+        this.gatewayClient = gatewayClient;
     }
 
     public Product getProduct(Long id) {
-        Product product = catalogClient.getProduct(id);
+        Product product = gatewayClient.getProduct(id);
 
-        Product.Stock stock = stockClient.getStock(id);
+        Product.Stock stock = gatewayClient.getStock(id);
         product.setStock(stock);
 
-        List<Product.Review> reviews = reviewClient.getReview(id);
+        List<Product.Review> reviews = gatewayClient.getReview(id);
         product.setReviews(reviews);
 
         return product;

@@ -16,15 +16,3 @@ starcourt-mall-gateway:
   ribbon:
     eureka:
       enabled: true
-starcourt-mall-catalog:
-  ribbon:
-    eureka:
-      enabled: true
-starcourt-mall-stock:
-  ribbon:
-    eureka:
-      enabled: true
-starcourt-mall-review:
-  ribbon:
-    eureka:
-      enabled: true
