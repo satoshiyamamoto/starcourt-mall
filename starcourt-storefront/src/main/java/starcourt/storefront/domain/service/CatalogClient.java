@@ -1,9 +1,9 @@
-package starcourt.gateway.domain.service;
+package starcourt.storefront.domain.service;
 
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.cloud.netflix.ribbon.RibbonClient;
 import org.springframework.web.client.RestTemplate;
-import starcourt.gateway.domain.model.Product;
+import starcourt.storefront.domain.model.Product;
 
 @RibbonClient("starcourt-catalog")
 public class CatalogClient {

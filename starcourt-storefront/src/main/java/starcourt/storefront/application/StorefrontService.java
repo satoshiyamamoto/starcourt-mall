@@ -1,23 +1,23 @@
-package starcourt.gateway.application;
+package starcourt.storefront.application;
 
 import org.springframework.stereotype.Service;
-import starcourt.gateway.domain.model.Product;
-import starcourt.gateway.domain.service.CatalogClient;
-import starcourt.gateway.domain.service.ReviewClient;
-import starcourt.gateway.domain.service.StockClient;
+import starcourt.storefront.domain.model.Product;
+import starcourt.storefront.domain.service.CatalogClient;
+import starcourt.storefront.domain.service.ReviewClient;
+import starcourt.storefront.domain.service.StockClient;
 
 import java.util.List;
 
 @Service
-public class StarcourtService {
+public class StorefrontService {
 
     private final CatalogClient catalogClient;
     private final StockClient stockClient;
     private final ReviewClient reviewClient;
 
-    public StarcourtService(CatalogClient catalogClient,
-                            StockClient stockClient,
-                            ReviewClient reviewClient) {
+    public StorefrontService(CatalogClient catalogClient,
+                             StockClient stockClient,
+                             ReviewClient reviewClient) {
         this.catalogClient = catalogClient;
         this.stockClient = stockClient;
         this.reviewClient = reviewClient;

@@ -1,8 +1,8 @@
 server:
-  port: 0
+  port: 8080
 spring:
   application:
-    name: starcourt-gateway
+    name: starcourt-storefront
 management:
   endpoints:
     web:
@@ -24,18 +24,3 @@ starcourt-review:
   ribbon:
     eureka:
       enabled: true
-zuul:
-  ignoredServices: '*'
-  routes:
-    catalog:
-      path: /catalog/**
-      strip-prefix: true
-      service-id: starcourt-catalog
-    stock:
-      path: /stock/**
-      strip-prefix: true
-      service-id: starcourt-stock
-    review:
-      path: /review/**
-      strip-prefix: true
-      service-id: starcourt-review

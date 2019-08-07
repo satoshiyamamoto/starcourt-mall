@@ -1,4 +1,4 @@
-package starcourt.gateway.domain.service;
+package starcourt.storefront.domain.service;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
@@ -8,7 +8,7 @@ import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
-import starcourt.gateway.domain.model.Product.Review;
+import starcourt.storefront.domain.model.Product.Review;
 
 import java.util.Collections;
 import java.util.List;

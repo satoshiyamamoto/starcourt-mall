@@ -1,18 +1,18 @@
-package starcourt.gateway.interfaces;
+package starcourt.storefront.interfaces;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
-import starcourt.gateway.application.StarcourtService;
-import starcourt.gateway.domain.model.Product;
+import starcourt.storefront.application.StorefrontService;
+import starcourt.storefront.domain.model.Product;
 
 @RestController
-public class GatewayController {
+public class StorefrontController {
 
-    private final StarcourtService application;
+    private final StorefrontService application;
 
-    public GatewayController(StarcourtService application) {
+    public StorefrontController(StorefrontService application) {
         this.application = application;
     }
 

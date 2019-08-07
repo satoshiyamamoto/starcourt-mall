@@ -1,4 +1,4 @@
-package starcourt.gateway.domain.model;
+package starcourt.storefront.domain.model;
 
 import lombok.Data;
 
