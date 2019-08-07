@@ -10,12 +10,12 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>starcourt-catalog</module>
-        <module>starcourt-stock</module>
-        <module>starcourt-review</module>
-        <module>starcourt-gateway</module>
-        <module>starcourt-storefront</module>
-        <module>starcourt-service-registry</module>
+        <module>starcourt-mall-storefront</module>
+        <module>starcourt-mall-gateway</module>
+        <module>starcourt-mall-catalog</module>
+        <module>starcourt-mall-stock</module>
+        <module>starcourt-mall-review</module>
+        <module>starcourt-mall-service-registry</module>
     </modules>
 
 </project>
