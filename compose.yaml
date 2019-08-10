@@ -1,0 +1,56 @@
+version: '3'
+services:
+  storefront:
+    image: satoshiyamamoto/starcourt-mall-storefront:1.0-SNAPSHOT
+    ports:
+      - "8080:8080"
+    environment:
+      SERVER_PORT: 8080
+      EUREKA_URI: http://service-registry:8761/eureka
+      ZIPKIN_URI: http://zipkin:9411/
+      JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+    depends_on:
+      - service-registry
+  gateway:
+    image: satoshiyamamoto/starcourt-mall-gateway:1.0-SNAPSHOT
+    ports:
+      - "8081:8080"
+    environment:
+      SERVER_PORT: 8080
+      EUREKA_URI: http://service-registry:8761/eureka
+      ZIPKIN_URI: http://zipkin:9411/
+      JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+    depends_on:
+      - service-registry
+  catalog:
+    image: satoshiyamamoto/starcourt-mall-catalog:1.0-SNAPSHOT
+    environment:
+      EUREKA_URI: http://service-registry:8761/eureka
+      ZIPKIN_URI: http://zipkin:9411/
+      JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+    depends_on:
+      - service-registry
+  stock:
+    image: satoshiyamamoto/starcourt-mall-stock:1.0-SNAPSHOT
+    environment:
+      EUREKA_URI: http://service-registry:8761/eureka
+      ZIPKIN_URI: http://zipkin:9411/
+      JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+    depends_on:
+      - service-registry
+  review:
+    image: satoshiyamamoto/starcourt-mall-review:1.0-SNAPSHOT
+    environment:
+      EUREKA_URI: http://service-registry:8761/eureka
+      ZIPKIN_URI: http://zipkin:9411/
+      JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+    depends_on:
+      - service-registry
+  service-registry:
+    image: satoshiyamamoto/starcourt-mall-service-registry:1.0-SNAPSHOT
+    ports:
+      - "8761:8761"
+  zipkin:
+    image: openzipkin/zipkin
+    ports:
+      - "9411:9411"
